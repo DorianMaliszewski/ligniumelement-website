@@ -1,0 +1,76 @@
+---
+import { Image, Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+type Props = {
+  images: ImageMetadata[];
+  coverIndex: number;
+  projectName: string;
+};
+
+const { images, coverIndex, projectName } = Astro.props;
+const dialogId = `${projectName}-dialog`;
+---
+
+<div class="flex">
+  <button
+    id={projectName + "-button"}
+    type="button"
+    class="flex flex-col gap-2 cursor-pointer"
+  >
+    <Picture
+      alt={`Project ${projectName} cover`}
+      src={images[coverIndex]}
+      decoding="auto"
+      class="w-full aspect-square object-cover text-background tranform transition-all hover:opacity-30 rounded"
+      transition:name="fade"
+      loading="lazy"
+    />
+    <p class="uppercase">{projectName}</p>
+  </button>
+</div>
+<dialog
+  id={dialogId}
+  class="fixed sr-only opacity-0 tranform transition-all top-1/2 left-1/2 duration-300 -translate-x-1/2 -translate-y-1/2 w-2/3"
+>
+  <div
+    onclick="event.stopPropagation()"
+    class="bg-background transition-all grid w-full gap-8 items-start p-4 grid-cols-1 md:grid-cols-3"
+  >
+    {
+      images.map((image, chunkIndex) => (
+        <Picture
+          alt={`Project ${projectName} image ${chunkIndex}`}
+          src={image}
+          class="h-auto max-w-full break-inside-avoid item text-background rounded object-cover"
+        />
+      ))
+    }
+  </div>
+</dialog>
+<script is:inline define:vars={{ projectName }}>
+  const dialog = document.getElementById(projectName + "-dialog");
+  const button = document.getElementById(projectName + "-button");
+
+  dialog.addEventListener("click", (event) => {
+    dialog.classList.add("opacity-0");
+    dialog.addEventListener(
+      "transitionend",
+      function () {
+        setTimeout(() => {
+          event.target.close();
+          dialog.classList.add("sr-only");
+          dialog.removeEventListener("transitionend", arguments.callee, false);
+        }, 300);
+      },
+      false,
+    );
+  });
+
+  button.addEventListener("click", () => {
+    if (!dialog.open) {
+      dialog.showModal();
+      dialog.classList.remove("sr-only");
+      dialog.classList.remove("opacity-0");
+    }
+  });
+</script>

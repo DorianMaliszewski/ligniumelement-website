@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+
+const pathname = Astro.url.pathname;
+---
+
+<header
+  transition:persist
+  class="flex flex-col md:flex-row justify-between items-center bg-background px-18 xl:px-24 pt-8"
+>
+  <div class="flex items-center overflow-hidden">
+    <a href="/">
+      <Image
+        src={logo}
+        alt="Logo de Brane"
+        class="h-36 object-contain w-auto text-background"
+        loading="eager"
+      />
+    </a>
+  </div>
+  <nav
+    class="text-primary uppercase text-sm md:text-lg flex items-center gap-6 py-2 xl:px-24"
+  >
+    <a class="min-w-fit font-semibold" href="/">Projets</a>
+    <span class="font-light text-4xl">•</span>
+    <a class="min-w-fit" href="/about">Agence et contact</a>
+  </nav>
+</header>

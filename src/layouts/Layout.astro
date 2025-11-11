@@ -1,0 +1,96 @@
+---
+import "@fontsource/roboto/300.css";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import TopBar from "../components/TopBar.astro";
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
+    <meta name="generator" content={Astro.generator} />
+    <meta name=" robots" content=" index, follow" />
+    <meta name="description" content={description} />
+    <meta name="author" content="LIGNUM ELEMENT" />
+    <meta
+      name="keywords"
+      content="architecte, architecture, designer, Corse, mobilier, bois, metal, pierre"
+    />
+    <meta
+      property="og:title"
+      content="LIGNUM ELEMENT – Conception du mobilier"
+    />
+    <meta
+      property="og:description"
+      content="LIGNUM ELEMENT conçoit du mobilier sur mesure alliant bois, métal et pierre"
+    />
+    <meta
+      property="og:image"
+      content="https://www.lignumelement.com/logo.png"
+    />
+    <meta property="og:url" content="https://www.lignumelement.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="Logo de LIGNUM ELEMENT" />
+    <meta
+      name="twitter:title"
+      content="LIGNUM ELEMENT – Conception du mobilier"
+    />
+    <meta
+      name="twitter:description"
+      content="LIGNUM ELEMENT conçoit du mobilier sur mesure alliant bois, métal et pierre, créé pour s’adapter à chaque projet et sublimer chaque espace."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.lignumelement.com/logo.png"
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body
+    class="flex flex-col gap-12 max-w-screen overflow-x-hidden bg-background"
+  >
+    <TopBar
+      transition:persist
+      transition:animate="fade"
+      transition:name="topBar"
+    />
+    <main
+      class="flex flex-col gap-18"
+      transition:animate="fade"
+      transition:name="mainContent"
+    >
+      <slot />
+    </main>
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "LIGNUM ELEMENT - Mobilier",
+        "url": "https://www.lignumelement.com",
+        "image": "https://www.lignumelement.com/logo.png",
+        "description": "LIGNUM ELEMENT conçoit du mobilier sur mesure alliant bois, métal et pierre.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Corse",
+          "addressCountry": "FR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+33625287044",
+          "contactType": "customer service"
+        }
+      }
+    </script>
+  </body>
+</html>

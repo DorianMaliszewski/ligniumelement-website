@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const description =
+  "LIGNUM ELEMENT conçoit du mobilier sur mesure alliant bois, métal et pierre, créé pour s’adapter à chaque projet et sublimer chaque espace.";
+const title = "Lignum Element | Agence et contact";
+---
+
+<Layout title={title} description={description}>
+  <section id="about" class="grid px-12 md:px-24 gap-4">
+    <h2 class="font-semibold text-lg">LIGNUM ELEMENT</h2>
+    <div class="grid md:grid-cols-2">
+      <p>
+        <b>LIGNUM ELEMENT</b> explore la rencontre entre le <b>bois</b>, le <b
+          >métal</b
+        > et la
+        <b>pierre</b>, à travers une approche où le design devient une extension
+        naturelle de l’architecture.<br />
+        Chaque création est pensée comme une pièce sur mesure, à la fois fonctionnelle
+        et expressive, qui s’intègre harmonieusement à son environnement.<br
+        /><br />
+        Les <b>mobilier et agencements LIGNUM ELEMENT</b> sont <b
+          >entièrement personnalisables</b
+        > : dimensions, finitions, teintes et matériaux s’adaptent à chaque projet
+        pour créer un <b>ensemble unique et cohérent</b>.<br /> Cette liberté de
+        conception permet de donner vie à des espaces singuliers, porteurs d’une
+        identité propre.<br /><br /> Développés par des <b
+          >architectes et designers</b
+        > passionnés, les modèles LIGNUM ELEMENT traduisent une exigence commune
+        : aller <b>au bout du projet</b>, du concept à la réalisation, en
+        alliant rigueur technique et sens du détail.<br /><br />
+        <b>Domaines d’intervention</b> :<br />
+        – Mobilier et agencement sur mesure<br />
+        – Création de pièces uniques et collections limitées<br />
+        – Collaboration avec architectes et décorateurs<br />
+        – Conseil en choix de matériaux et finitions<br />
+        <br />
+        <b>LIGNUM ELEMENT</b> incarne une vision du design global, où la matière
+        devient langage et chaque élément, une expression de l’espace.
+      </p>
+    </div>
+  </section>
+  <section
+    id="contact"
+    class="grid md:grid-cols-2 justify-center items-center gap-4 md:gap-0 border-t-2 border-primary p-12 md:px-24"
+  >
+    <dl class="flex flex-col gap-2">
+      <dt class="font-semibold text-lg">Contact</dt>
+      <dd>
+        <a class="underline text-primary" href="tel:+33625287044">
+          +33 6 25 28 70 44
+        </a>
+      </dd>
+      <dd>
+        <a class="underline text-primary" href="tel:+33625010943">
+          +33 6 25 01 09 43
+        </a>
+      </dd>
+      <dd>
+        <a
+          class="underline text-primary"
+          href="mailto:contact@lignumelement.com"
+        >
+          contact@lignumelement.com
+        </a>
+      </dd>
+    </dl>
+    <dl class="flex flex-col gap-2">
+      <dt class="font-semibold text-lg">Adresse</dt>
+      <dd>
+        <p>12 RUE CESAR CAMPINCHI</p>
+        <p>20200 BASTIA</p>
+      </dd>
+      <dd>
+        <p>BACALDIVA DE TRINITE</p>
+        <p>20137 PORTO-VECCHIO</p>
+      </dd>
+    </dl>
+  </section>
+</Layout>

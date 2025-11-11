@@ -1,0 +1,23 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import InProgress from "../components/InProgress.astro";
+import Layout from "../layouts/Layout.astro";
+import test1 from "../assets/projets/01/1.png";
+import test2 from "../assets/projets/01/2.png";
+import test3 from "../assets/projets/01/3.png";
+import test4 from "../assets/projets/01/4.png";
+
+const test = [test1, test2, test3, test4];
+
+const description =
+  "LIGNUM ELEMENT conçoit du mobilier sur mesure alliant bois, métal et pierre, créé pour s’adapter à chaque projet et sublimer chaque espace.";
+const title = "Lignum Element | Projets";
+---
+
+<Layout title={title} description={description}>
+  <section id="projects" class="px-12 md:px-24 flex flex-col gap-4 items-start">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <ProjectCard images={test} projectName="01" coverIndex={1} />
+    </div>
+  </section>
+</Layout>
